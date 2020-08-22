@@ -1,0 +1,53 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-card/paper-card.html">
+
+<dom-module id="fernando-espinosa">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+       
+  <paper-card heading="{{inputLabel}}" >
+  <paper-input label="[[inputLabel]]" value="{{tittle}}"></paper-input>
+  <paper-button taggles raised>[[inputValue]]</paper-button>
+  </paper-card>
+
+  </template>
+
+  <script>
+    /**
+     * `fernando-espinosa`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class FernandoEspinosa extends Polymer.Element {
+      static get is() { return 'fernando-espinosa'; }
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: 'title'
+          },
+          inputLabel: {
+            type: String,
+            value: 'Label'
+          },
+          inputValue: {
+            type: String,
+            value: 'button',
+            notify: true
+          }
+        };
+      }
+    }
+
+    window.customElements.define(FernandoEspinosa.is, FernandoEspinosa);
+  </script>
+</dom-module>
