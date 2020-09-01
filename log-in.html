@@ -1,0 +1,103 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+
+<dom-module id="log-in">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-checkbox{
+      --paper-checkbox-checked-color: {
+
+      }
+    }
+    paper-input {
+      box-shadow: 50px;
+    }
+    paper-card{
+      --paper-card:{
+        max-width:100%;
+        border-radius:5px;
+        box-shadow:none;
+        padding:1rem;
+        position:relative;
+        padding-left:137px;
+      }
+    }
+    </style>
+
+<h2>[[prop1]]!</h2>
+      <div >
+        <template>
+          <paper-card  elevation="2" heading="[[title2]]">
+            
+            <form>
+            <paper-input id="mail" label="e-mail" type="mail" required>
+              <iron-icon icon="mail"></iron-icon>
+            </paper-input>
+            <paper-input id="password" label="password" type="password">
+              <iron-icon icon="padlock" ></iron-icon>
+            </paper-input>
+            <paper-checkbox>Recordar</paper-checkbox>
+            <paper-button id="Login" on-click="enviar">Entrar</paper-button>
+          </form>
+          <slot></slot>
+          </paper-card>
+          
+        </template>
+      </div>
+  
+
+  <script>
+    /**
+     * `log-in`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class LogIn extends Polymer.Element {
+      static get is() { return 'log-in'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'log-in',
+          },
+          title2: {
+            type: String,
+            value: 'Login',
+          },
+          email: {
+            type: String,
+            value: 'fespinosas512@gmail.com',
+            notify: true,
+          },
+          password: {
+            type: String,
+            value: 'tacosalpastor',
+            notify: true,
+          }
+          
+        };
+      }
+      enviar(){
+        let password=password;
+        if(password != fern26){
+          alert("Contraseña incorrecta, prueba de nuevo")
+        }
+        else{
+          console.log("Verificado")
+        }
+      }
+    }
+
+    window.customElements.define(LogIn.is, LogIn);
+  </script>
+</dom-module>
